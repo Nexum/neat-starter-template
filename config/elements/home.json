@@ -1,0 +1,11 @@
+[
+    {
+        "name": "welcome",
+        "file": "welcome",
+        "cache": {
+            "expires": 3600
+        },
+        "config": {
+        }
+    }
+]

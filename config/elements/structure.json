@@ -1,0 +1,20 @@
+[
+    {
+        "name": "header",
+        "file": "header",
+        "cache": {
+            "expires": 3600
+        },
+        "config": {
+        }
+    },
+    {
+        "name": "footer",
+        "file": "footer",
+        "cache": {
+            "expires": 3600
+        },
+        "config": {
+        }
+    }
+]

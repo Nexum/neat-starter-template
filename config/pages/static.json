@@ -1,0 +1,16 @@
+{
+    "home": {
+        "path": "/",
+        "slots": {
+            "header": [
+                "structure.header"
+            ],
+            "content": [
+                "home.welcome"
+            ],
+            "footer": [
+                "structure.footer"
+            ]
+        }
+    }
+}

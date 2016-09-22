@@ -31,6 +31,7 @@ Application.registerModule("webserver", require("neat-webserver"));
 Application.registerModule("sockets", require("neat-sockets"));
 Application.registerModule("database", require("neat-database"));
 Application.registerModule("cache", require("neat-cache"));
+Application.registerModule("auth", require("neat-auth"));
 Application.registerModule("elements", require("neat-elements"));
 
 // FRONTENDS

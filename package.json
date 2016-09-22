@@ -22,6 +22,7 @@
     "neat-base": "^1.0.0",
     "neat-cache": "^1.0.0",
     "neat-database": "^1.0.0",
+    "neat-auth": "^1.0.0",
     "neat-elements": "^1.0.1",
     "neat-frontend": "^1.0.1",
     "neat-sockets": "^1.0.0",

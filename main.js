@@ -22,7 +22,7 @@ Application.configure({
     logLevelConsole: stage == "dev" ? "debug" : "info",
     logLevelFile: stage == "dev" ? "info" : "info",
     logLevelRemote: stage == "dev" ? "debug" : "info",
-    logFormat: "DD.MM.YYYY h:mm:ss",
+    logFormat: "DD.MM.YYYY hh:mm:ss",
     logDir: __dirname + "/logs"
 });
 

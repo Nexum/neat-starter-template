@@ -1,0 +1,11 @@
+{
+    "name": "DummyScript",
+    "version": "0.0.1",
+    "description": "Simple dummy script",
+    "main": "dummyscript.js",
+    "author": "",
+    "dependencies": {
+    },
+    "peerDependencies": {
+    }
+}

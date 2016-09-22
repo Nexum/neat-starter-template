@@ -1,0 +1,10 @@
+{
+    "arguments": [
+        {
+            "longName": "user <user>",
+            "description": "User to greet",
+            "required": false
+        }
+    ],
+    "useLockFile": false
+}

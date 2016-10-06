@@ -66,11 +66,15 @@ module.exports = function (grunt) {
                 options: {
                     style: 'expanded',
                     sourcemap: 'none',
+                    loadPath: [
+                        './frontend/src/scss/',
+                        './node_modules/bootstrap-sass/assets/stylesheets'
+                    ],
                     'default-encoding': 'utf-8'
                 },
                 files: [
                     {
-                        './frontend/css/styles.css': './frontend/src/sass/styles.sass'
+                        './frontend/public/css/styles.css': './frontend/src/sass/styles.scss'
                     }
                 ]
             }
@@ -89,7 +93,7 @@ module.exports = function (grunt) {
 
         watch: {
             sass: {
-                files: ['./frontend/src/**/*.sass'],
+                files: ['./frontend/src/**/*.scss'],
                 tasks: ['sass']
             },
             options: {
@@ -103,11 +107,12 @@ module.exports = function (grunt) {
         connect: {
             server: {
                 options: {
-                    base: "./workfiles/",
-                    open: {
-                        target: 'http://localhost:8001/'
-                    },
-                    port: 8001,
+                    base: [
+                        "./workfiles/",
+                        "./frontend/public/"
+                    ],
+                    open: true,
+                    port: 13338,
                     hostname: '*'
                 }
             }
@@ -118,6 +123,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-keepalive');
     grunt.loadNpmTasks('grunt-contrib-sass');

@@ -42,11 +42,15 @@
     "expose-loader": "^0.7.1",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-keepalive": "^1.0.0",
     "grunt-webpack": "^1.0.14",
     "jquery": "^3.1.0",
-    "webpack": "^1.12.15"
+    "webpack": "^1.12.15",
+    "webpack-dev-server": "^1.16.1"
   }
 }

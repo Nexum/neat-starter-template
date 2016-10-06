@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 
         webpack: {
             bundle: {
-                entry: path.resolve('frontend/src/main'),
+                entry: path.resolve('frontend/src/js/main'),
                 watch: true,
                 module: {
                     loaders: [
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                 },
                 resolve: {
                     root: [
-                        path.resolve('frontend/src')
+                        path.resolve('frontend/src/js')
                     ],
                     extensions: [
                         '',
@@ -60,43 +60,55 @@ module.exports = function (grunt) {
             }
         },
 
-        ape_deploy: {
-            view: {
+
+        sass: {
+            dist: {
                 options: {
-                    stage: "view",
-                    name: "base",
-                    redisDb: 0,
-                    nodejs: true,
-                    ignoreFiles: [".deployignore"],
-                    servers: [
-                        {
-                            host: "dummy.ams.to",
-                            user: "ape",
-                            root: "/home/ape"
-                        }
-                    ],
-                    links: {
-                        "data": "data"
+                    style: 'expanded',
+                    sourcemap: 'none',
+                    'default-encoding': 'utf-8'
+                },
+                files: [
+                    {
+                        './frontend/css/styles.css': './frontend/src/sass/styles.sass'
                     }
+                ]
+            }
+        },
+
+        cssmin: {
+            clean: {
+                options: {
+                    report: 'min'
+                },
+                files: {
+                    './frontend/css/styles.css': './frontend/css/styles.css'
                 }
+            }
+        },
+
+        watch: {
+            sass: {
+                files: ['./frontend/src/**/*.sass'],
+                tasks: ['sass']
             },
-            prod: {
+            options: {
+                livereload: {
+                    host: 'localhost',
+                    port: 35732
+                }
+            }
+        },
+
+        connect: {
+            server: {
                 options: {
-                    stage: "prod",
-                    name: "base",
-                    redisDb: 0,
-                    nodejs: true,
-                    ignoreFiles: [".deployignore"],
-                    servers: [
-                        {
-                            host: "dummy.ams.to",
-                            user: "ape",
-                            root: "/home/ape"
-                        }
-                    ],
-                    links: {
-                        "data": "data"
-                    }
+                    base: "./workfiles/",
+                    open: {
+                        target: 'http://localhost:8001/'
+                    },
+                    port: 8001,
+                    hostname: '*'
                 }
             }
         }
@@ -108,10 +120,20 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-keepalive');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('build', [
         'webpack',
+        'sass',
+        'cssmin',
         "uglify"
+    ]);
+
+    grunt.registerTask('devCss', [
+        'sass',
+        'connect',
+        'watch'
     ]);
 
     grunt.registerTask('dev', [

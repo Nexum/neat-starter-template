@@ -12,6 +12,8 @@ Application.configure({
         "dev"
     ],
 
+    //homepage_atelier-kienzler
+
     // PATHS
     root_path: __dirname,
     modules_path: __dirname + "/modules",

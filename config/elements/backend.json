@@ -1,0 +1,23 @@
+[
+    {
+        "name": "header",
+        "file": "header",
+        "cache": false,
+        "config": {
+        }
+    },
+    {
+        "name": "footer",
+        "file": "footer",
+        "cache": false,
+        "config": {
+        }
+    },
+    {
+        "name": "dashboard",
+        "file": "dashboard",
+        "cache": false,
+        "config": {
+        }
+    }
+]

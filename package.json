@@ -50,6 +50,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-keepalive": "^1.0.0",
     "grunt-webpack": "^1.0.14",
+    "html-loader": "^0.4.4",
     "jquery": "^3.1.0",
     "webpack": "^1.12.15",
     "webpack-dev-server": "^1.16.1"

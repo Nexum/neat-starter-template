@@ -79,6 +79,18 @@ export default class Application {
             app.filter(filterName, require("./filters/" + filterPath).default);
         });
 
+        var controllerContext = require.context("./controllers", true, /^.*\.js$/);
+        controllerContext.keys().forEach(function (filterPath) {
+            var parts = filterPath.split("/");
+            parts.shift();
+            var firstPart = parts.shift();
+            firstPart = firstPart.replace(/^\./ig, "").toLowerCase();
+            var filterName = firstPart + toTitleCase(parts.join(" ")).split(" ").join("");
+            filterName = filterName.replace(/\.js$/i, "");
+            filterPath = filterPath.replace(/^\.\//i, "");
+            app.controller(filterName, require("./controllers/" + filterPath).default);
+        });
+
         ng.element(document).ready(function () {
             ng.bootstrap(document, [MODULE_NAME]);
         });

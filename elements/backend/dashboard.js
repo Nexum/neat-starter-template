@@ -5,8 +5,6 @@ var Promise = require("bluebird");
 
 module.exports = class Header extends Element {
     executeHeader(resolve) {
-        resolve({
-            user: this.req.user
-        });
+        resolve();
     }
 }

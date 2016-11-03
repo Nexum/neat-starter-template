@@ -36,6 +36,10 @@ module.exports = function (grunt) {
                                 presets: ['es2015']
                             },
                             exclude: /node_modules|templates/
+                        },
+                        {
+                            test: /\.html/,
+                            loader: 'html-loader'
                         }
                     ]
                 },

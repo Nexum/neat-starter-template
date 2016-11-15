@@ -12,8 +12,6 @@ Application.configure({
         "dev"
     ],
 
-    //homepage_atelier-kienzler
-
     // PATHS
     root_path: __dirname,
     modules_path: __dirname + "/modules",
@@ -32,9 +30,12 @@ Application.configure({
 Application.registerModule("webserver", require("neat-webserver"));
 Application.registerModule("sockets", require("neat-sockets"));
 Application.registerModule("database", require("neat-database"));
+Application.registerModule("file", require("neat-file"));
 Application.registerModule("cache", require("neat-cache"));
 Application.registerModule("auth", require("neat-auth"));
 Application.registerModule("elements", require("neat-elements"));
+Application.registerModule("projection", require("neat-projection"));
+Application.registerModule("imageserver", require("neat-imageserver"));
 
 // FRONTENDS
 Application.registerModule("api", require("neat-api"));

@@ -1,7 +1,7 @@
 {
     "name": "DummyScript",
     "version": "0.0.1",
-    "description": "Simple dummy script",
+    "description": "Simple dummy script, generates some sample data!",
     "main": "dummyscript.js",
     "author": "",
     "dependencies": {

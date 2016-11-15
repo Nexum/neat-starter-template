@@ -1,0 +1,11 @@
+[
+    {
+        "name": "text",
+        "file": "text",
+        "cache": {
+            "expires": 3600
+        },
+        "config": {
+        }
+    }
+]

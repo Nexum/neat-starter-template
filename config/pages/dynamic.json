@@ -1,0 +1,23 @@
+{
+    "newsDetail": {
+        "path": "/*-:_id.html",
+        "layout": "default",
+        "model": {
+            "name": "news",
+            "populate": [
+                "image"
+            ]
+        },
+        "slots": {
+            "header": [
+                "structure.header"
+            ],
+            "content": [
+                "news.text"
+            ],
+            "footer": [
+                "structure.footer"
+            ]
+        }
+    }
+}

@@ -1,5 +1,20 @@
 var path = require("path");
 
+var neatmodules = [
+    "neat-base",
+    "neat-api",
+    "neat-auth",
+    "neat-cache",
+    "neat-database",
+    "neat-elements",
+    "neat-file",
+    "neat-frontend",
+    "neat-imageserver",
+    "neat-projection",
+    "neat-sockets",
+    "neat-webserver"
+]
+
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -90,7 +105,7 @@ module.exports = function (grunt) {
                     report: 'min'
                 },
                 files: {
-                    './frontend/css/styles.css': './frontend/css/styles.css'
+                    './frontend/public/css/styles.css': './frontend/public/css/styles.css'
                 }
             }
         },
@@ -120,6 +135,30 @@ module.exports = function (grunt) {
                     hostname: '*'
                 }
             }
+        },
+
+
+        shell: {
+
+            setupDev: {
+                command: [
+                    'echo Setting up neat modules',
+                    'rm -rf neat-modules',
+                    'mkdir neat-modules',
+                    (function () {
+                        var command = [];
+                        for (var i = 0; i < neatmodules.length; i++) {
+                            var moduleName = neatmodules[i];
+                            command.push("echo " + moduleName);
+                            command.push("rm -rf node_modules/" + moduleName);
+                            command.push("git clone https://github.com/Nexum/" + moduleName + ".git neat-modules/" + moduleName);
+                            command.push("npm link neat-modules/" + moduleName);
+                        }
+                        return command.join('&&')
+                    })()
+                ].join('&&')
+            }
+
         }
 
     });
@@ -131,6 +170,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-keepalive');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('build', [
